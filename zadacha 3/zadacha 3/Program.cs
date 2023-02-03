@@ -8,11 +8,13 @@ void PrintArr(double[] array)
 {
     Console.Write($"[{String.Join(", ", array)}]\n");
 }
-double[] GenerateArr(int  n, int min, int max)
+double[] GenerateArr(int  n)
 {
     double[] arrNum = new double[n];
-    Random rnd = new Random();
-    for (int i =0; i < arrNum.Length; arrNum[i++]=rnd.Next(min, max)) { }
+     //Random rnd = new Random();
+    for (int i =0; i < arrNum.Length; i++) {
+        arrNum[i] = Convert.ToDouble(new Random().Next(-100, 1000)) / 100;
+            }
         return arrNum;
 }
 double Result(double[] array)
@@ -30,7 +32,7 @@ double Result(double[] array)
     result = z - x;
     return result;
 }
-double[] array = GenerateArr(10, -10, 10);
+double[] array = GenerateArr(5);
 PrintArr(array);
 double res = Result(array);
-Console.WriteLine($"Разница максимального и минимального элементов равна {res},");
+Console.WriteLine($"Разница максимального и минимального элементов равна {res}");
